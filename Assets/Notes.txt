@@ -1,1 +1,7 @@
-Last spot: Chapter 3 - Intro to scripting (p79)
+Last spot: Chapter 3 - Adding Gun Play (p92)
+
+Git bash commands
+
+git add .
+git commit -m "update title"
+git push origin master
