@@ -15,7 +15,17 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))                                                   //while the player is holding the left(0) mouse button
+        {
+            if (!IsInvoking("fireBullet"))                                                  //If we have not set up (invoked) our bullet firing yet
+            {
+                InvokeRepeating("fireBullet", 0.0f, 0.1f);                                  //set our fire method to continously fire (every 0.1s)
+            }                                                                               //(overhead? I guess this is more framerate independant than a simple countdown)
+        }
+        else if (Input.GetMouseButtonUp(0))                                                 //once the left(0) button is release, cancel the firing
+        {                                                                                   //(will this continue to be called while the player is not doing anything?)
+            CancelInvoke("fireBullet");
+        }
     }
 
     void fireBullet()
