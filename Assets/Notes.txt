@@ -1,4 +1,4 @@
-Last spot: Chapter 4 - Beginning (p96)
+Last spot: Chapter 4 - Adding Joints (p118)
 
 Git bash commands
 

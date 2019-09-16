@@ -35,5 +35,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-#locked files
-*.lock
+#unity locked files
+Temp/

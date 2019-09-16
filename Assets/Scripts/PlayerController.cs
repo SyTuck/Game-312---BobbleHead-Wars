@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public float moveSpeed = 50.0f;
+    public Rigidbody head;
 
     private CharacterController characterController;
 
@@ -27,5 +28,10 @@ public class PlayerController : MonoBehaviour
         pos.z += moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime;    //(horizontal and vertical are tags for the arrow and WASD keys)
         this.transform.position = pos;                                      //(deltaTime is to make a frame rate independent scale for the speed per update loop)
    */
+    }
+
+    void FixedUpdate()
+    {
+        
     }
 }
