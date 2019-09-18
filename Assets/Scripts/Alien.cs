@@ -8,8 +8,11 @@ public class Alien : MonoBehaviour
 {
 
     public Transform target;
+    public float navigationUpdate;
 
     private NavMeshAgent agent;
+    private float navigationTime = 0.0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +26,17 @@ public class Alien : MonoBehaviour
     {
         if (target != null)
         {
-            agent.destination = target.position;
-        }
-        
+            navigationTime += Time.deltaTime;
+            if (navigationTime > navigationUpdate)
+            {
+                agent.destination = target.position;
+                navigationTime = 0.0f;
+            }
+        }        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(this.gameObject);
     }
 }
