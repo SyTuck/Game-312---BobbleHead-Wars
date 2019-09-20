@@ -1,4 +1,4 @@
-Last spot: Chapter 6 - Animating Models (p171)
+Last spot: Chapter 6 - Imported Animations (p174)
 
 Git bash commands
 
