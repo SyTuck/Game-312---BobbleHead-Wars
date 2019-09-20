@@ -1,4 +1,4 @@
-Last spot: Chapter 6 - Beginning (p152)
+Last spot: Chapter 6 - Triggering Animations in code (p169)
 
 Git bash commands
 
