@@ -1,4 +1,4 @@
-Last spot: Chapter 6 - Triggering Animations in code (p169)
+Last spot: Chapter 6 - Animating Models (p171)
 
 Git bash commands
 
