@@ -1,4 +1,4 @@
-Last spot: Chapter 6 - Imported Animations (p174)
+Last spot: Chapter 7 - Getting Started (p183)
 
 Git bash commands
 

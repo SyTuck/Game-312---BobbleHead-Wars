@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: eefc10e9ba8e9fe47be5677ea6981cad, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a9592ff168d61e445ac2da15b8d63b4a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eefc10e9ba8e9fe47be5677ea6981cad, type: 3}
 --- !u!4 &1420318 stripped
@@ -222,6 +226,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &1420323 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: eefc10e9ba8e9fe47be5677ea6981cad,
+    type: 3}
+  m_PrefabInstance: {fileID: 1420317}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &37290672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,6 +1438,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8192
+  bodyAnimator: {fileID: 1420323}
 --- !u!1001 &1391344278
 PrefabInstance:
   m_ObjectHideFlags: 0
