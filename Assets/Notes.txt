@@ -1,4 +1,4 @@
-Last spot: Chapter 7 - Getting Started (p183)
+Last spot: Chapter 7 - Playing Sounds (p192)
 
 Git bash commands
 
