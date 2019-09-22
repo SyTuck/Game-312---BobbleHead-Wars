@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
                 upgrade.transform.position = spawnLocation.transform.position;
 
                 spawnedUpgrade = true;
-                SoundManager.Instance.PlayOneShot(SoundManager.Instance.powerUpAppear);
+                SoundManager.Instance.PlayOneShot(SoundManager.Instance.powerUpAppear);aaaa
             }
         }
 
