@@ -6,10 +6,17 @@ public class Gun : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform launchPosition;
+    public bool isUpgraded;
+    public float upgradeTime = 10.0f;
+    private float currentTime;
+
+
+    private AudioSource audioSource;
+
 
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource> ();
     }
 
     // Update is called once per frame
@@ -26,15 +33,48 @@ public class Gun : MonoBehaviour
         {                                                                                   //(will this continue to be called while the player is not doing anything?)
             CancelInvoke("fireBullet");
         }
+
+        if (isUpgraded)
+        {
+            currentTime += Time.deltaTime;
+            if (currentTime > upgradeTime)
+            {
+                isUpgraded = false;
+            }
+        }
     }
 
     void fireBullet()
     {
+
+        Rigidbody bullet = createBullet();
+        bullet.velocity = this.transform.parent.forward * 100.0f;    //set it's velocity to be in the direction the gun is pointing to
+
+        if (isUpgraded)
+        {
+            Rigidbody bullet2 = createBullet();
+            bullet2.velocity = (this.transform.right + this.transform.parent.forward / 0.33f) * 33.0f;    //set it's velocity to be in the direction the gun is pointing to
+
+            Rigidbody bullet3 = createBullet();
+            bullet3.velocity = ((this.transform.right * -1.0f) + this.transform.parent.forward/0.33f) * 33.0f;    //set it's velocity to be in the direction the gun is pointing to
+            audioSource.PlayOneShot(SoundManager.Instance.upgradedGunFire);
+        }
+        else
+        {
+            audioSource.PlayOneShot(SoundManager.Instance.gunFire);
+        }
+    }
+
+    private Rigidbody createBullet()
+    {
         GameObject bullet = Instantiate(bulletPrefab) as GameObject;                        //create a bullet from our prefab
+        bullet.transform.position = launchPosition.position;                                //place it at the launcher (gun)\
+        return bullet.GetComponent<Rigidbody>();
+    }
 
-        bullet.transform.position = launchPosition.position;                                //place it at the launcher (gun)
-
-        bullet.GetComponent<Rigidbody>().velocity = this.transform.parent.forward * 100;    //set it's velocity to be in the direction the gun is pointing to
-
+    public void UpgradeGun()
+    {
+        isUpgraded = true;
+        currentTime = 0;
     }
 }
