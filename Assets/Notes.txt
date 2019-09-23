@@ -1,4 +1,4 @@
-Last spot: Chapter 8 - Beginning (p210)
+Last spot: Chapter 8 - Managin script order (p221)
 
 Git bash commands
 
