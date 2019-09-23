@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     private float actualUpgradeTime = 0.0f;
     private float currentUpgradeTime = 0.0f;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -52,10 +51,9 @@ public class GameManager : MonoBehaviour
                 upgrade.transform.position = spawnLocation.transform.position;
 
                 spawnedUpgrade = true;
-                SoundManager.Instance.PlayOneShot(SoundManager.Instance.powerUpAppear);aaaa
+                SoundManager.Instance.PlayOneShot(SoundManager.Instance.powerUpAppear);
             }
         }
-
 
         currentSpawnTime += Time.deltaTime;
         if (currentSpawnTime > generatedSpawnTime)
@@ -96,9 +94,17 @@ public class GameManager : MonoBehaviour
                         alienScript.target = player.transform;
                         Vector3 targetRotation = new Vector3(player.transform.position.x, newAlien.transform.position.y, player.transform.position.z);
                         newAlien.transform.LookAt(targetRotation);
+
+                        alienScript.OnDestroy.AddListener(AlienDestroyed);
                     }
                 }
             }
         }
+    }
+
+    public void AlienDestroyed()
+    {
+        aliensOnScreen -= 1;
+        totalAliens -= 1;
     }
 }
