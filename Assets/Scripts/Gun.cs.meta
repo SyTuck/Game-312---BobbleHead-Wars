@@ -6,7 +6,7 @@ MonoImporter:
   defaultReferences:
   - bulletPrefab: {instanceID: 0}
   - launchPosition: {instanceID: 0}
-  executionOrder: 0
+  executionOrder: 100
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
