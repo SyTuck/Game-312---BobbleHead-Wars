@@ -1,4 +1,4 @@
-Last spot: Chapter 8 - Decapitating the alien (broken) (p223)
+Last spot: Chapter 8 - Adding Particles (p225)
 
 Git bash commands
 
