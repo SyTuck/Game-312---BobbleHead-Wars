@@ -5,20 +5,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float moveSpeed = 50.0f;
     public Rigidbody head;
+    public Rigidbody marineBody;
     public LayerMask layerMask;
     public Animator bodyAnimator;
     public float[] hitForce;
     public float timeBetweenHits = 2.5f;
-    public Rigidbody marineBody;
+    public float moveSpeed = 50.0f;
 
     private Vector3 currentLookTarget = Vector3.zero;
     private CharacterController characterController;
-    private bool isHit = false;
     private float timeSinceHit = 0.0f;
     private int hitNumber = -1;
     private bool isDead = false;
+    private bool isHit = false;
 
     void Start()
     {
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * 1000.0f, Color.green);
-        if (Physics.Raycast(ray, out hit, 1000, layerMask, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(ray, out hit, 1000.0f, layerMask, QueryTriggerInteraction.Ignore))
         {
             if (hit.point != currentLookTarget)
             {

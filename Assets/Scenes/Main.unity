@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1847,8 +1847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d2f6bd60b4aba4ea62e8c760b78e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 50
   head: {fileID: 1876220429}
+  marineBody: {fileID: 1420322}
   layerMask:
     serializedVersion: 2
     m_Bits: 8192
@@ -1858,7 +1858,7 @@ MonoBehaviour:
   - 0.2
   - 0.3
   timeBetweenHits: 2.5
-  marineBody: {fileID: 1420322}
+  moveSpeed: 50
 --- !u!1001 &1391344278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2196,7 +2196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100078, guid: 7f78b096b427d419f9918e4ae4fc4aec, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7f78b096b427d419f9918e4ae4fc4aec, type: 3}
       propertyPath: m_LocalPosition.x
