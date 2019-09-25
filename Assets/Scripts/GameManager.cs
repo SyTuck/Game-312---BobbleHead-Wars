@@ -5,27 +5,27 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public GameObject player;
     public GameObject[] spawnPoints;
+    public GameObject player;
     public GameObject alien;
-
     public GameObject upgradePrefab;
+    public GameObject deathFloor;
     public Gun gun;
-    public float upgradeMaxTimeSpawn = 7.5f;
 
-    public int maxAliensOnScreen;
-    public int totalAliens;
+    public float upgradeMaxTimeSpawn = 7.5f;
     public float minSpawnTime;
     public float maxSpawnTime;
     public int aliensPerSpawn;
+    public int maxAliensOnScreen;
+    public int totalAliens;
 
-    private int aliensOnScreen = 0;
     private float generatedSpawnTime = 0;
     private float currentSpawnTime = 0;
-
-    private bool spawnedUpgrade = false;
     private float actualUpgradeTime = 0.0f;
     private float currentUpgradeTime = 0.0f;
+
+    private int aliensOnScreen = 0;
+    private bool spawnedUpgrade = false;
 
     // Start is called before the first frame update
     void Start()
@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
                         newAlien.transform.LookAt(targetRotation);
 
                         alienScript.OnDestroy.AddListener(AlienDestroyed);
+                        alienScript.GetDeathParticles().SetDeathFloor(deathFloor);
                     }
                 }
             }
