@@ -13,8 +13,8 @@ public class Arena : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        arenaAnimator = GetComponent<Animator>();
-        sphereCollider = GetComponent<SphereCollider>();
+        arenaAnimator = this.GetComponent<Animator>();
+        sphereCollider = this.GetComponent<SphereCollider>();
     }
 
     // Update is called once per frame
@@ -25,11 +25,19 @@ public class Arena : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Camera.main.transform.parent.gameObject.GetComponent<CameraMovement>().enabled = false;
-        player.transform.parent = elevator.transform;
-        player.GetComponent<PlayerController>().enabled = false;
+        if (sphereCollider.enabled)
+        {
+            Camera.main.transform.parent.gameObject.GetComponent<CameraMovement>().enabled = false;
+            player.transform.parent = elevator.transform;
+            player.GetComponent<PlayerController>().enabled = false;
 
-        SoundManager.Instance.PlayOneShot(SoundManager.Instance.elevatorArrived);
-        arenaAnimator.SetBool("OnElevator", true);
+            SoundManager.Instance.PlayOneShot(SoundManager.Instance.elevatorArrived);
+            arenaAnimator.SetBool("OnElevator", true);
+        }
+    }
+
+    public void ActivatePlatform()
+    {
+        sphereCollider.enabled = true;
     }
 }

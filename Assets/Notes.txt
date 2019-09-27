@@ -1,4 +1,4 @@
-Last spot: Chapter 8 - Animation events (p235)
+Last spot: Chapter 8 - Final debugging (p239)
 
 Git bash commands
 

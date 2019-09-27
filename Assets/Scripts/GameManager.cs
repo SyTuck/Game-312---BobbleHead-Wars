@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    public Animator arenaAnimator;
     public GameObject[] spawnPoints;
     public GameObject player;
     public GameObject alien;
@@ -107,10 +108,20 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
     public void AlienDestroyed()
     {
         aliensOnScreen -= 1;
         totalAliens -= 1;
+        if (totalAliens == 0)
+        {
+            Invoke("endGame", 2.0f);
+        }
     }
+
+    private void endGame()
+    {
+        SoundManager.Instance.PlayOneShot(SoundManager.Instance.elevatorArrived);
+        arenaAnimator.SetTrigger("PlayerWon");
+    }
+
 }
