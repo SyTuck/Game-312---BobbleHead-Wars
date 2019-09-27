@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1739,6 +1739,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1772945353}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1020517726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020517725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 220fe11eae5c36746b4112773dffa4ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1363173365}
+  elevator: {fileID: 1772945355}
 --- !u!135 &1020517727
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1750,8 +1764,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.03
-  m_Center: {x: 0, y: 0, z: 0.02}
+  m_Radius: 1.65
+  m_Center: {x: 0, y: 0.22, z: 0}
 --- !u!54 &1020517728
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2682,6 +2696,12 @@ PrefabInstance:
 --- !u!4 &1772945354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7f78b096b427d419f9918e4ae4fc4aec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1772945353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1772945355 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400044, guid: 7f78b096b427d419f9918e4ae4fc4aec,
     type: 3}
   m_PrefabInstance: {fileID: 1772945353}
   m_PrefabAsset: {fileID: 0}
