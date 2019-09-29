@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private DeathParticles deathParticles;
     private float timeSinceHit = 0.0f;
     private int hitNumber = -1;
-    private bool isDead = false;
+ //   private bool isDead = false;
     private bool isHit = false;
 
     void Start()
@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
         marineBody.useGravity = true;
         marineBody.gameObject.GetComponent<CapsuleCollider>().enabled = true;
         marineBody.gameObject.GetComponent<Gun>().enabled = false;
+        marineBody.gameObject.GetComponent<Gun>().isDead = true;
 
         Destroy(head.gameObject.GetComponent<HingeJoint>());
         head.transform.parent = null;

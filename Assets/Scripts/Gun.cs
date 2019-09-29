@@ -8,6 +8,9 @@ public class Gun : MonoBehaviour
     public Transform launchPosition;
     public bool isUpgraded;
     public float upgradeTime = 10.0f;
+
+    public bool isDead = false;
+
     private float currentTime;
 
 
@@ -47,21 +50,29 @@ public class Gun : MonoBehaviour
     void fireBullet()
     {
 
-        Rigidbody bullet = createBullet();
-        bullet.velocity = this.transform.parent.forward * 100.0f;    //set it's velocity to be in the direction the gun is pointing to
 
-        if (isUpgraded)
-        {
-            Rigidbody bullet2 = createBullet();
-            bullet2.velocity = (this.transform.right + this.transform.parent.forward / 0.33f) * 33.0f;    //set it's velocity to be in the direction the gun is pointing to
-
-            Rigidbody bullet3 = createBullet();
-            bullet3.velocity = ((this.transform.right * -1.0f) + this.transform.parent.forward/0.33f) * 33.0f;    //set it's velocity to be in the direction the gun is pointing to
-            audioSource.PlayOneShot(SoundManager.Instance.upgradedGunFire);
+        if (isDead)                                                         //cancel the Invoke otherwise we continue to spawn bullets if firing upon death
+        {                                                                   //this doesn't actually stop the Repeated Invoke, but wrapping the spawn
+            CancelInvoke("fireBullet");                                     //in an "if" stops the bullets from continously spawning
         }
         else
         {
-            audioSource.PlayOneShot(SoundManager.Instance.gunFire);
+            Rigidbody bullet = createBullet();
+            bullet.velocity = this.transform.parent.forward * 100.0f;    //set it's velocity to be in the direction the gun is pointing to
+
+            if (isUpgraded)
+            {
+                Rigidbody bullet2 = createBullet();
+                bullet2.velocity = (this.transform.right + this.transform.parent.forward / 0.33f) * 33.0f;    //set it's velocity to be in the direction the gun is pointing to
+
+                Rigidbody bullet3 = createBullet();
+                bullet3.velocity = ((this.transform.right * -1.0f) + this.transform.parent.forward / 0.33f) * 33.0f;    //set it's velocity to be in the direction the gun is pointing to
+                audioSource.PlayOneShot(SoundManager.Instance.upgradedGunFire);
+            }
+            else
+            {
+                audioSource.PlayOneShot(SoundManager.Instance.gunFire);
+            }
         }
     }
 
